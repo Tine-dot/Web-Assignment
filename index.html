@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Company - Leading IT Solutions Provider</title>
+   
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {margin: 0;padding: 0;box-sizing: border-box;}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Header/Nav - Responsive with hamburger menu */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+    z-index: 1000;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo-main h1 a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.logo-main h1 a:hover {
+    color: #ffd700;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.nav-menu {
+    transition: left 0.3s ease;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #ffd700;
+    background: rgba(255,215,0,0.1);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+
+.hero {
+    background: linear-gradient(rgba(12,12,52,0.8), rgba(12,12,52,0.8)), url('data:image/svg+xml;base64,...'); /* Placeholder; replace with actual if needed */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: white;
+    padding-top: 80px; /* Account for fixed header */
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.btn {
+    display: inline-block;
+    background: #ffd700;
+    color: #0f2027;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255,215,0,0.4);
+}
+
+/* Services Section - Flexbox cards */
+.service {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: #0f2027;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.service-box {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: #2c5364;
+    margin-bottom: 1rem;
+}
+
+/* About Section - Flex layout */
+.about {
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-img img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+/* Team Section - CSS Grid */
+.team {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.team-member {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+.team-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    object-fit: cover;
+}
+
+/* Testimonials - Enhanced slider */
+.testi {
+    padding: 100px 0;
+}
+
+.testi-container {
+    max-width: 800px;
+    margin: 4rem auto 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.testi-slide {
+    padding: 3rem;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transition: transform 0.5s ease;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testi-slide.active {
+    transform: scale(1.05);
+}
+
+.testi-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.testi-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.testi-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 50%;
+}
+
+.testi-nav:hover {
+    background: rgba(255,255,255,0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {left: 20px;}
+.next {right: 20px;}
+
+/* Contact Section */
+.conta {
+    padding: 100px 0;
+    background: linear-gradient(to right, #0f2027, #203a43);
+    color: white;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    transition: box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(255,215,0,0.5);
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: #ffd700;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: linear-gradient(to right, #0f2027, #203a43);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .services-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header {
+        padding: 1rem 3%;
+    }
+}
+    </style>
+</head>
+<body>
+    
+    <header class="header" id="header-main">
+        <div class="logo-main">
+            <h1><a href="#">IT Company</a></h1>
+        </div>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#header-main" class="nav-link">Home</a></li>
+                <li><a href="#service" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#testi" class="nav-link">Testimonials</a></li>
+                <li><a href="#conta" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section class="hero" id="service">
+        <div class="hero-content container">
+            <h2>Leading IT Solutions Provider</h2>
+            <p>We deliver innovative technology solutions that drive business success.</p>
+            <a href="#conta" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    
+    <section class="service" id="service">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-box">
+                    <div class="service-icon">💻</div>
+                    <h3>Web Development</h3>
+                    <p>Custom responsive websites built with modern technologies.</p>
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">📱</div>
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile applications.</p>
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">☁️</div>
+                    <h3>Cloud Services</h3>
+                    <p>Scalable cloud infrastructure and migration services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-img">
+                <img src="https://via.placeholder.com/500x400/2c5364/ffffff?text=About+Us" alt="Team working on IT project">
+            </div>
+            <div class="about-content">
+                <h2>About Our Company</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. We are passionate about technology and delivering exceptional results for our clients.</p>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Our team of experts brings years of experience to every project.</p>
+                <a href="#conta" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="team" id="team">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img class="team-img" src="https://via.placeholder.com/120/203a43/ffffff?text=JD" alt="John Doe - CEO">
+                    <h3>John Doe</h3>
+                    <p>CEO & Founder</p>
+                </div>
+                <div class="team-member">
+                    <img class="team-img" src="https://via.placeholder.com/120/2c5364/ffffff?text=JS" alt="Jane Smith - CTO">
+                    <h3>Jane Smith</h3>
+                    <p>CTO</p>
+                </div>
+                <div class="team-member">
+                    <img class="team-img" src="https://via.placeholder.com/120/0f2027/ffffff?text=MB" alt="Mike Brown - Lead Developer">
+                    <h3>Mike Brown</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member">
+                    <img class="team-img" src="https://via.placeholder.com/120/203a43/ffffff?text=SL" alt="Sarah Lee - Designer">
+                    <h3>Sarah Lee</h3>
+                    <p>UI/UX Designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="testi" id="testi">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testi-container">
+                <div class="testi-slide active">
+                    <p class="testi-text">"IT Company transformed our digital presence with their exceptional web development skills. Highly recommended!"</p>
+                    <strong>John Smith, CEO TechCorp</strong>
+                </div>
+                <div class="testi-slide">
+                    <p class="testi-text">"Outstanding cloud migration services. Professional team and great results."</p>
+                    <strong>Maria Garcia, CTO Innovate Inc</strong>
+                </div>
+                <div class="testi-slide">
+                    <p class="testi-text">"Mobile app development exceeded expectations. Best IT partner we've had!"</p>
+                    <strong>David Wilson, Founder StartupX</strong>
+                </div>
+                <button class="testi-nav prev" onclick="changeSlide(-1)">❮</button>
+                <button class="testi-nav next" onclick="changeSlide(1)">❯</button>
+                <div class="testi-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="conta" id="conta">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <form class="contact-form" action="#" method="post">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required aria-label="Your name">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required aria-label="Your email">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Your message"></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📍</i>
+                    <h3>Address</h3>
+                    <p>123 Tech Street, Innovation City</p>
+                </div>
+                <div class="contact-item">
+                    <i>📞</i>
+                    <h3>Phone</h3>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <i>✉️</i>
+                    <h3>Email</h3>
+                    <p>hello@itcompany.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 IT Company. All rights reserved. | Designed for HCSCI231/HSWE221 Assignment</p>
+        </div>
+    </footer>
+
+    
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const slides = document.querySelectorAll('.testi-slide');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+   
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+    });
+
+   
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+   
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
+
+    function changeSlide(direction) {
+        clearInterval(autoSlideInterval);
+        const newSlide = (currentSlide + direction + slides.length) % slides.length;
+        showSlide(newSlide);
+        startAutoSlide();
+    }
+
+    function currentSlide(index) {
+        clearInterval(autoSlideInterval);
+        showSlide(index - 1);
+        startAutoSlide();
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => currentSlide(index + 1));
+    });
+
+   
+    startAutoSlide();
+
+   
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
+
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 1s ease forwards';
+            }
+        });
+    }, observerOptions);
+
+    
+    document.querySelectorAll('.service-box, .team-member, .about-content').forEach(el => {
+        observer.observe(el);
+    });
+});
+    </script>
+</body>
+</html>
