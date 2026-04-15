@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Company - Leading IT Solutions Provider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header class="header" id="header-main">
+        <div class="logo-main">
+            <h1><a href="#">IT Company</a></h1>
+        </div>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle Dark/Light Mode">
+            ☀️🌙
+        </button>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#header-main" class="nav-link">Home</a></li>
+                <li><a href="#service" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#testi" class="nav-link">Testimonials</a></li>
+                <li><a href="#conta" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section class="hero" id="service">
+        <div class="hero-content container">
+            <h2>Leading IT Solutions Provider</h2>
+            <p>We deliver innovative technology solutions that drive business success.</p>
+            <a href="#conta" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    
+    <section class="service" id="service">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-box">
+                    <div class="service-icon">💻</div>
+                    <h3>Web Development</h3>
+                    <p>Custom responsive websites built with modern technologies.</p>
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">📱</div>
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile applications.</p>
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">☁️</div>
+                    <h3>Cloud Services</h3>
+                    <p>Scalable cloud infrastructure and migration services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-img">
+                <img src="team.png" alt="Team working on IT project">
+            </div>
+            <div class="about-content">
+                <h2>About Our Company</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. We are passionate about technology and delivering exceptional results for our clients.</p>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Our team of experts brings years of experience to every project.</p>
+                <a href="#conta" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img class="team-img" src="Wee.png" alt="Wee - CEO">
+                    <h3>Wellington T.T</h3>
+                    <p>CEO & Founder</p>
+                </div>
+                <div class="team-member">
+                    <img class="team-img" src="https://via.placeholder.com/120/2c5364/ffffff?text=JS" alt="Jane Smith - CTO">
+                    <h3>Tinevimbo Tutisa</h3>
+                    <p>CTO</p>
+                </div>
+                <div class="team-member">
+                    <img class="team-img" src="https://via.placeholder.com/120/0f2027/ffffff?text=MB" alt="Mike Brown - Lead Developer">
+                    <h3>Faith Thandeka</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member">
+                    <img class="team-img" src="Kikie.jpeg" alt="Kikie - Designer">
+                    <h3>Kikie</h3>
+                    <p>Designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="testi" id="testi">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testi-container">
+                <div class="testi-slide active">
+                    <p class="testi-text">"IT Company transformed our digital presence with their exceptional web development skills. Highly recommended!"</p>
+                    <strong> John Smith, CEO TechCorp</strong>
+                </div>
+                <div class="testi-slide">
+                    <p class="testi-text">"Outstanding cloud migration services. Professional team and great results."</p>
+                    <strong>Maria Garcia, CTO Innovate Inc</strong>
+                </div>
+                <div class="testi-slide">
+                    <p class="testi-text">"Mobile app development exceeded expectations. Best IT partner we've had!"</p>
+                    <strong>David Wilson, Founder StartupX</strong>
+                </div>
+                <button class="testi-nav prev" onclick="changeSlide(-1)">❮</button>
+                <button class="testi-nav next" onclick="changeSlide(1)">❯</button>
+                <div class="testi-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="conta" id="conta">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <form class="contact-form" action="#" method="post">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required aria-label="Your name">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required aria-label="Your email">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Your message"></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📍</i>
+                    <h3>Address</h3>
+                    <p>123 Tech Street, Innovation City</p>
+                </div>
+                <div class="contact-item">
+                    <i>📞</i>
+                    <h3>Phone</h3>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <i>✉️</i>
+                    <h3>Email</h3>
+                    <p>hello@itcompany.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 IT Company. All rights reserved. | Designed for HCSCI231/HSWE221 Assignment</p>
+        </div>
+    </footer>
+
+    
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Dark/Light Mode Toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        html.classList.add('dark-mode');
+    }
+    themeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark-mode');
+        if (html.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.innerHTML = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.innerHTML = '🌙';
+        }
+    });
+    if (currentTheme === 'dark') {
+        themeToggle.innerHTML = '☀️';
+    }
+    
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const slides = document.querySelectorAll('.testi-slide');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
+
+    function changeSlide(direction) {
+        clearInterval(autoSlideInterval);
+        const newSlide = (currentSlide + direction + slides.length) % slides.length;
+        showSlide(newSlide);
+        startAutoSlide();
+    }
+
+    function currentSlide(index) {
+        clearInterval(autoSlideInterval);
+        showSlide(index - 1);
+        startAutoSlide();
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => currentSlide(index + 1));
+    });
+
+    startAutoSlide();
+
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 1s ease forwards';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-box, .team-member, .about-content').forEach(el => {
+        observer.observe(el);
+    });
+});
+    </script>
+</body>
+</html>
