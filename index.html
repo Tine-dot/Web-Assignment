@@ -9,21 +9,61 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+:root {
+    --bg-primary: #f8f9fa;
+    --bg-secondary: white;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --header-bg: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    --accent: #ffd700;
+    --shadow: rgba(0,0,0,0.1);
+    --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+:root.dark-mode {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #f0f0f0;
+    --text-secondary: #ccc;
+    --header-bg: linear-gradient(to right, #0a0a0a, #1a1a1a, #2d2d2d);
+    --accent: #ffed4a;
+    --shadow: rgba(0,0,0,0.5);
+    --card-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
 * {margin: 0;padding: 0;box-sizing: border-box;}
 
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    transition: background 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
 }
 
 /* Header/Nav - Responsive with hamburger menu */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+
 .header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    background: var(--header-bg);
     color: white;
     z-index: 1000;
     padding: 1rem 5%;
@@ -31,7 +71,7 @@ body {
     justify-content: space-between;
     align-items: center;
     transition: background 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
 }
 
 .logo-main h1 a {
@@ -157,14 +197,14 @@ body {
 /* Services Section - Flexbox cards */
 .service {
     padding: 100px 0;
-    background: #f8f9fa;
+    background: var(--bg-primary);
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 4rem;
-    color: #0f2027;
+    color: var(--text-primary);
 }
 
 .services-grid {
@@ -175,11 +215,11 @@ body {
 }
 
 .service-box {
-    background: white;
+    background: var(--bg-secondary);
     padding: 2.5rem;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
 }
 
@@ -217,13 +257,13 @@ body {
 .about-content p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    color: #666;
+    color: var(--text-secondary);
 }
 
 /* Team Section - CSS Grid */
 .team {
     padding: 100px 0;
-    background: #f8f9fa;
+    background: var(--bg-primary);
 }
 
 .team-grid {
@@ -234,11 +274,11 @@ body {
 }
 
 .team-member {
-    background: white;
+    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
 }
 
@@ -468,10 +508,13 @@ footer {
         <div class="logo-main">
             <h1><a href="#">IT Company</a></h1>
         </div>
-        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+<button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle Dark/Light Mode">
+            ☀️🌙
         </button>
         <nav class="nav-menu">
             <ul>
@@ -650,6 +693,27 @@ footer {
     
     <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Dark/Light Mode Toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        html.classList.add('dark-mode');
+    }
+    themeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark-mode');
+        if (html.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.innerHTML = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.innerHTML = '🌙';
+        }
+    });
+    if (currentTheme === 'dark') {
+        themeToggle.innerHTML = '☀️';
+    }
+    
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
